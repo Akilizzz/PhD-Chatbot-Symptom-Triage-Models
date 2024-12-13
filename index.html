@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Image Loader</title>
-    <style> 
+    <title>Chatbot Symptom Triage Tester</title>
+    <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #textBox {
             background-color: #f4f4f4;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
         }
         img {
             max-width: 100%;
             height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- Static text box at the top -->
+    <div id="textBox">
+        Welcome to the page! This is a random image generator. Refresh the page to see a new image.
+    </div>
+
+    <!-- Random image generator -->
     <script>
         // Array of image URLs
         const images = [
-            'image1.jpg', // Replace with the actual image URLs
+            'image1.jpg', // Replace with your actual image URLs
             'image2.jpg',
             'image3.jpg',
             'Screenshot 2024-12-13 152732.jpg'
@@ -33,7 +42,7 @@
         const randomIndex = Math.floor(Math.random() * images.length);
         const selectedImage = images[randomIndex];
 
-        // Create an img element and set its source
+        // Create and display the random image
         const imgElement = document.createElement('img');
         imgElement.src = selectedImage;
         imgElement.alt = "Random Image";
@@ -41,5 +50,25 @@
         // Append the image to the body
         document.body.appendChild(imgElement);
     </script>
+    <script>
+        (function(d,t) {
+          var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src="https://test.ca.one-stop-talk.sbx.gcp.trchq.com//embed.js"
+          s.parentNode.insertBefore(g,s);
+          g.onload=function(){
+            new window.VirtualCareMessengerEncrypted({
+              domain: 'https://test.ca.one-stop-talk.sbx.gcp.trchq.com/',
+              ws:  'wss://test.ca.one-stop-talk.sbx.gcp.trchq.com/cable',
+              app_id: "riaEToTgJ9GartVeTxtaFWCL",
+              data: {
+                email: "user@email.com",
+                identifier_key: "INSERT_HMAC_VALUE_HERE",
+                properties: { }
+              },
+              lang: "USER_LANG_OR_DEFAULTS_TO_BROWSER_LANG" 
+            })
+          }
+        })(document,"script");
+      </script>
 </body>
 </html>
