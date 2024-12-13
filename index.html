@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Random Image Loader</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <script>
+        // Array of image URLs
+        const images = [
+            'image1.jpg', // Replace with the actual image URLs
+            'image2.jpg',
+            'image3.jpg'
+        ];
+
+        // Select a random image
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+
+        // Create an img element and set its source
+        const imgElement = document.createElement('img');
+        imgElement.src = selectedImage;
+        imgElement.alt = "Random Image";
+
+        // Append the image to the body
+        document.body.appendChild(imgElement);
+    </script>
 </body>
 </html>
