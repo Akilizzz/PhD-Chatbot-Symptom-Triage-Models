@@ -24,14 +24,8 @@
     </style>
 </head>
 <body>
-    <!-- Static text box at the top -->
-    <div id="textBox">
-        Welcome to the page! This is a random image generator. Refresh the page to see a new image. Welcome to the page! This is a random image generator. Refresh the page to see a new image. Welcome to the page! This is a random image generator. Refresh the page to see a new image. Welcome to the page! This is a random image generator. Refresh the page to see a new image. Welcome to the page! This is a random image generator. Refresh the page to see a new image. Welcome to the page! This is a random image generator. Refresh the page to see a new image.
-    </div>
-
     <!-- Random image generator -->
     <script>
-        // Array of image URLs
         const images = [
             'image1.jpg', // Replace with your actual image URLs
             'image2.jpg',
@@ -39,16 +33,43 @@
             'Screenshot 2024-12-13 152732.jpg'
         ];
 
-        // Select a random image
-        const randomIndex = Math.floor(Math.random() * images.length);
-        const selectedImage = images[randomIndex];
+        // Utility functions to manage cookies
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
 
-        // Create and display the random image
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+        }
+
+        // Get already displayed images from cookies
+        let shownImages = getCookie('shownImages');
+        shownImages = shownImages ? JSON.parse(shownImages) : [];
+
+        // Get the next random image that hasn't been shown yet
+        let remainingImages = images.filter(img => !shownImages.includes(img));
+        if (remainingImages.length === 0) {
+            // If all images have been shown, reset the cycle
+            shownImages = [];
+            remainingImages = images;
+        }
+
+        // Select a random image from the remaining images
+        const randomImage = remainingImages[Math.floor(Math.random() * remainingImages.length)];
+        shownImages.push(randomImage);
+
+        // Update the cookie with the new list of shown images
+        setCookie('shownImages', JSON.stringify(shownImages), 7); // Cookie expires in 7 days
+
+        // Display the selected image
         const imgElement = document.createElement('img');
-        imgElement.src = selectedImage;
+        imgElement.src = randomImage;
         imgElement.alt = "Random Image";
-
-        // Append the image to the body
         document.body.appendChild(imgElement);
     </script>
     <div id="textBox">
