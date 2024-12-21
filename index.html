@@ -18,13 +18,13 @@
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
         }
-        #topTextBox, #staticImage {
-            flex: 1; /* Each takes up equal space */
-        }
         #topTextBox {
-            flex: 1; /* Text takes up available horizontal space */
+            flex: 3; /* Text takes up available horizontal space */
             text-align: left;
             margin-right: 5px; /* Add space between text and image */
+        }
+        #staticImage {
+            flex: 2; /* 40% of the container */
         }
         #staticImage img {
             max-width: 66%; /* Adjust size as needed */
