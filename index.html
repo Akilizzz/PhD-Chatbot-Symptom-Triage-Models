@@ -8,10 +8,27 @@
         body {
             font-family: Calibri, sans-serif;
             font-size: 24px;
-            text-align: left;
             padding: 20px;
             background-color: #e9e9e9;
+            margin: 0;
+        }
+        #topTextBoxContainer {
+            display: flex;
+            flex-direction: column;
             border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        #topTextBox {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        #staticImage {
+            flex-shrink: 0;
+            margin-top: 20px;
+        }
+        #staticImage img {
+            max-width: 150px; /* Adjust size as needed */
+            height: auto;
         }
         img {
             max-width: 100%;
@@ -19,11 +36,36 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
+        ol {
+            margin-top: 10px;
+            padding-left: 40px;
+            font-size: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    <div id="topTextBox">
-        Thank you for taking the time to complete this chatbot testing exercise
+    <div id="topTextBoxContainer">
+        <div id="topTextBox">
+            <p>Thank you for taking the time to complete this chatbot testing exercise</p>
+            <p>Please follow the steps below to complete testing:</p>
+            <ol>
+                <li>Click on the blue chat icon in the bottom right corner to open the chatbot.</li>
+                <li>Provide the information requested by the chatbot.</li>
+                <li>Select "model 1" when prompted.</li>
+                <li>Using the information displayed on the page, interact with the chatbot with the goal of receiving information and instructions for the appropriate level of care.</li>
+                <li>Provide feedback on your interaction in the chatbot when prompted.</li>
+                <li>Once you have provided feedback, refresh the page.</li>
+                <li>Clear the conversation by clicking on the blue chat icon in the bottom right corner, then on the highlighted icon, then on the red "clear conversation" button.</li>
+                <li>Repeat steps 2-7 for models 2, 3, and 4.</li>
+                <li>Close the browser when you have completed testing for all 4 models.</li>
+            </ol>
+        </div>
+        <div id="staticImage">
+            <img src="imageresetchat.jpg" alt="Static Image">
+        </div>
     </div>
     <!-- Random image generator -->
     <script>
