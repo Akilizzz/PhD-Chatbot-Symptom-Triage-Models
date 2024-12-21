@@ -14,17 +14,17 @@
         }
         #topTextBoxContainer {
             display: flex;
-            flex-direction: column;
+            align-items: flex-start; /* Align items at the top */
             border-bottom: 1px solid #ddd;
             padding-bottom: 20px;
         }
         #topTextBox {
+            flex: 1; /* Text takes up available horizontal space */
             text-align: left;
-            margin-bottom: 20px;
+            margin-right: 20px; /* Add space between text and image */
         }
         #staticImage {
-            flex-shrink: 0;
-            margin-top: 20px;
+            flex-shrink: 0; /* Prevent image from shrinking */
         }
         #staticImage img {
             max-width: 150px; /* Adjust size as needed */
