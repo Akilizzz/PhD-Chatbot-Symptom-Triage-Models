@@ -23,6 +23,8 @@
             text-align: left;
             margin-right: 5px; /* Add space between text and image */
             font-size: 16px; /* Use px for a fixed size */
+            transform: scale(1); /* Ensures no scaling due to zoom */
+            transform-origin: left top; /* Keeps scaling consistent from top-left corner */
         }
         #staticImage {
             flex: 7; /* 40% of the container */
